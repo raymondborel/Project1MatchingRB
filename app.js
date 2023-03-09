@@ -20,30 +20,36 @@ for (let i = 0; i<4; i++){
     }
     copyNumArray.push(num);
 }
-console.log(numArray);
-console.log(copyNumArray);
+// console.log(numArray);
+// console.log(copyNumArray);
 
-//Combining both arrays in 1 to set up next function which gives crads numbers
+//Combining both arrays in 1 to set up next function which gives cards numbers
 let cardNums = numArray.concat(copyNumArray);
 console.log(cardNums);
 
 
-//Setting values for each card at newGame
+//Setting logic for newGame
 function newGame (numbers) {
-    console.log(numbers)
+    //Setting values & event listeners for each card
     for (let i = 0; i<squares.length; i++){
-        //Picking a number from random to add to card
-        // let pickedNum = Math.floor(Math.random() * squares.length);
-        // console.log(numbers[i])
         squares[i]=numbers[i];
-        // Math.floor(Math.random() * squares.length);
         squares[i].addEventListener('click', function () {
-            // console.log(random[i]);
             squares[i].innerHTML = numbers[i];
         })
     }
 }
 console.log(newGame(cardNums));
+//Working on hide and reveal logic
+for (let i = 0; i<squares.length; i++){
+    squares[i].addEventListener('click', function () {
+    for (let j=0; j<squares.length; j++) {
+        if (squares[i].innerHTML !== squares[j].innerHTML) {
+        squares[i].innerHTML = '';
+        squares[j].innerHTML = '';
+    }
+
+}
+})}
 //unfinished
 function showCard (clickedCard){
     clickedCard.innerHTML = squares
