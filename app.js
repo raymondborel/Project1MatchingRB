@@ -35,21 +35,51 @@ function newGame (numbers) {
         squares[i]=numbers[i];
         squares[i].addEventListener('click', function () {
             squares[i].innerHTML = numbers[i];
+            checkMatch(squares[i].innerHTML)
         })
     }
+    console.log(squares.innerHTML);
+    
+
+    // for (let i=0; i=squares.length; i++) {
+    //     if (squares[i].innerHTML !== undefined) {
+    //         for (let j=0; j<squares.length; j++) {
+    //             if (squares[i].innerHTML !== squares[j].innerHTML) {
+    //             squares[i].innerHTML = '';
+    //             squares[j].innerHTML = '';
+    //             }
+
+    //         }
+    //     }
+    // }
+    // for (let i = 0; i<squares.length; i++){
+    //     for (let j=0; j<squares.length; j++) {
+    //         if (squares[i].innerHTML !== squares[j].innerHTML) {
+    //         squares[i].innerHTML = '';
+    //         squares[j].innerHTML = '';
+    //     }
+    
+    // }
+
 }
-console.log(newGame(cardNums));
-//Working on hide and reveal logic
-for (let i = 0; i<squares.length; i++){
-    squares[i].addEventListener('click', function () {
-    for (let j=0; j<squares.length; j++) {
-        if (squares[i].innerHTML !== squares[j].innerHTML) {
-        squares[i].innerHTML = '';
-        squares[j].innerHTML = '';
+function checkMatch (firstGuessCard) {
+    for (let i=0; i<squares.length; i++){
+        if (squares[i].innerHTML == firstGuessCard) {
+            firstGuessCard = ''
+            squares[i].innerHTML = ''
+        }
     }
 
 }
-})}
+console.log(newGame(cardNums));
+//Working on hide and reveal logic
+
+// squares[i].addEventListener('click', function () {
+//     squares[i].innerHTML = numbers[i];
+// })
+
+
+
 //unfinished
 function showCard (clickedCard){
     clickedCard.innerHTML = squares
