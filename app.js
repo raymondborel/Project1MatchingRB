@@ -18,44 +18,34 @@ let square5 = squares[4];
 let square6 = squares[5];
 let square7 = squares[6];
 let square8 = squares[7];
+let cardNums;
 //First, initializing 2 arrays
 
 //Creating array of random number for half cards that doesnt repeat
-for (let i = 0; i<4; i++){
-    while (numArray.includes(num)) {
-        num = Math.floor(Math.random() * 4);
-    }
-    numArray.push(num);
-}
-//Creating second array for other half of cards
-num = Math.floor(Math.random() * 4)
-for (let i = 0; i<4; i++){
-    while (copyNumArray.includes(num)) {
-        num = Math.floor(Math.random() * 4);
-    }
-    copyNumArray.push(num);
-}
 
 //Combining both arrays in 1 to set up next function which gives cards numbers
-let cardNums = numArray.concat(copyNumArray);
-console.log(cardNums);
-/*let cards = [
-    [''],
-    [''],
-    [''],
-    [''],
-    [''],
-    [''],
-    [''],
-    ['']
-]*/
-// cards.card1.push('something')
+
+
 //Setting logic fr newGame
 startGameButton.addEventListener('click', newGame);
 function newGame () {
+    for (let i = 0; i<4; i++){
+        while (numArray.includes(num)) {
+            num = Math.floor(Math.random() * 4);
+        }
+        numArray.push(num);
+    }
+    //Creating second array for other half of cards
+    num = Math.floor(Math.random() * 4)
+    for (let i = 0; i<4; i++){
+        while (copyNumArray.includes(num)) {
+            num = Math.floor(Math.random() * 4);
+        }
+        copyNumArray.push(num);
+    }
+    cardNums = numArray.concat(copyNumArray);
     //Setting vales & event listeners for each card
     for (let i = 0; i<squares.length; i++){
-        //cards[i].push(cardNums[i])
         squares[i].addEventListener('click', function ()  {
             if(!isFirstCardSelected) {
                 squares[i].innerHTML = cardNums[i];
@@ -67,7 +57,7 @@ function newGame () {
         })
     }
     
-    //console.log(cards)
+    console.log(cardNums)
 }
 // startGameButton.addEventListener('click', newGame);
 

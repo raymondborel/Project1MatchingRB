@@ -1,7 +1,7 @@
 .square {
     width: 15vw;
     height: 14vh;
-    border: 3px solid #333;
+    border: 2px solid #333;
     display: flex; 
     flex-wrap: space-between;
     align-items: center; 
@@ -9,7 +9,9 @@
     /* justify-content: center;   */
     /* margin: 5;  */
   }
-
+body {
+  background-color: rgba(167, 163, 151, 0.691)
+}
 .board {
   background-color: blanchedalmond;
   display: flex;
@@ -28,10 +30,14 @@ h1 {
 .buttons {
   display: flex;
   background-color: bisque;
-  width: 20%;
-  height: 30vh;
-  color: forestgreen;
+  width: 20vw;
+  height: 10vh;
+  color: rgb(38, 144, 38);
+  
 }
 
+h3 {
+  text-align: center;
+}
 
   
