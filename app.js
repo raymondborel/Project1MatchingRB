@@ -9,6 +9,8 @@ let firstPickedCardValue = [];
 let myTimer;
 let numArray = [];
 let copyNumArray = [];
+let matches = 0;
+let numOfMatches = document.getElementById('correctMatches');
 let num = Math.floor(Math.random() * 4)
 let square1 = squares[0];
 let square2 = squares[1];
@@ -104,6 +106,8 @@ function showFirstCard (square, squareValue) {
 function showSecondCard (square, idx) {
     if(firstPickedCard.innerHTML == cardNums[idx]){
         square.innerHTML = cardNums[idx];
+        matches++
+        numOfMatches.innerHTML = `Correct Matches ${matches}`
         firstPickedCard = false;
         isFirstCardSelected = false;
     } else { 
@@ -121,6 +125,8 @@ function quitGame (){
         for ( i=0; i<squares.length; i++){
             squares[i].innerHTML = ''
         } 
+    matches = 0
+    numOfMatches.innerHTML = `Correct Matches ${matches}`  
 }
 //trying to set event listener for each card so I can show card after click
 // for (let i = 0; i < squares.length; i++){
