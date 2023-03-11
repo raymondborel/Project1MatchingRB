@@ -1,9 +1,16 @@
 let squares = document.querySelectorAll('.square');
 let startGameButton = document.querySelector('.newGame')
 let quitGameButton = document.querySelector('.quitGame')
-
+let clock = document.querySelector('clock')
+let isFirstCardSelected = false;
+let isSecondCardSelected = false;
+let firstPickedCard;
+let firstPickedCardValue = [];
+let myTimer;
+let numArray = [];
+let copyNumArray = [];
+let num = Math.floor(Math.random() * 4)
 let square1 = squares[0];
-square1.innerHTML = 'haha'
 let square2 = squares[1];
 let square3 = squares[2];
 let square4 = squares[3];
@@ -11,34 +18,15 @@ let square5 = squares[4];
 let square6 = squares[5];
 let square7 = squares[6];
 let square8 = squares[7];
-console.log(square8)
 //First, initializing 2 arrays
-let numArray = [];
-let copyNumArray = [];
+
 //Creating array of random number for half cards that doesnt repeat
-let num = Math.floor(Math.random() * 4)
 for (let i = 0; i<4; i++){
     while (numArray.includes(num)) {
         num = Math.floor(Math.random() * 4);
     }
     numArray.push(num);
 }
-//Assign numbers to squares
-square1 = numArray[0];
-square2 = numArray[1];
-square3 = numArray[2];
-square4 = numArray[3];
-square5 = numArray[4];
-square6 = numArray[5];
-square7 = numArray[6];
-square8 = numArray[7];
-console.log(square8)
-
-console.log(square8 + 'THIS IS THE LAST SQUARES NUM')
-// for (i=0; i<squares.length; i++){
-    
-// }
-
 //Creating second array for other half of cards
 num = Math.floor(Math.random() * 4)
 for (let i = 0; i<4; i++){
@@ -51,21 +39,37 @@ for (let i = 0; i<4; i++){
 //Combining both arrays in 1 to set up next function which gives cards numbers
 let cardNums = numArray.concat(copyNumArray);
 console.log(cardNums);
-square1.innerHTML = '8'
-console.log(square1.innerHTML + 'o k')
-//Setting logic for newGame
-function newGame (numbers) {
-    //Setting values & event listeners for each card
+/*let cards = [
+    [''],
+    [''],
+    [''],
+    [''],
+    [''],
+    [''],
+    [''],
+    ['']
+]*/
+// cards.card1.push('something')
+//Setting logic fr newGame
+startGameButton.addEventListener('click', newGame);
+function newGame () {
+    //Setting vales & event listeners for each card
     for (let i = 0; i<squares.length; i++){
-        squares[i].innerHTML =numbers[i];
-        // squares[i].addEventListener('click', function () {// clickSquare function check match here
-            // squares[i].innerHTML = numbers[i];
-            // checkMatch(squares[i].innerHTML)
-        // })
-    }
+        //cards[i].push(cardNums[i])
+        squares[i].addEventListener('click', function ()  {
+            if(!isFirstCardSelected) {
+                squares[i].innerHTML = cardNums[i];
+                isFirstCardSelected = true;
+                firstPickedCard = squares[i]
+                firstPickedCardValue.push(cardNums[i])
+            } else showSecondCard(squares[i], i);
 
+        })
+    }
+    
+    //console.log(cards)
 }
-newGame(cardNums);
+// startGameButton.addEventListener('click', newGame);
 
 
 
@@ -94,10 +98,33 @@ newGame(cardNums);
 
 
 //unfinished
-function hide(whichSquare) {
-    document.getElementById('whichSquare').style.display = 'none'
- }
-  hide(square1);
+// function hide(whichSquare) {
+//     document.getElementById('whichSquare').style.display = 'none'
+//  }
+
+
+//   hide(square1);
+function showFirstCard (square, squareValue) {
+    if ( isFirstCardSelected == false){
+        //isFirstCardSelected = true;
+        square.innerHTML = squareValue;
+    }
+}
+
+function showSecondCard (square, idx) {
+    if(firstPickedCard.innerHTML == cardNums[idx]){
+        square.innerHTML = cardNums[idx];
+        firstPickedCard = false;
+        isFirstCardSelected = false;
+    } else { 
+        //show cardnum [idx]
+        firstPickedCard.innerHTML = ''
+        firstPickedCard = false;
+        isFirstCardSelected = false;
+    }
+}
+
+// }
 // Quit game function clears board
 quitGameButton.addEventListener('click', quitGame)
 function quitGame (){
@@ -110,6 +137,17 @@ function quitGame (){
 
 // }
 
+// function startTimer(seconds) {
+//     myTimer = seconds;
+//     const interval = setInterval( function () {
+//         clock.innerHTML = (`$(myTimer)`)
+//         myTimer--;
+//         if (myTimer <0) {
+//             clearInterval(interval);
+//             clock.innerHTML = ('Time is up!! GAME OVER!');
+//         }
+//     }, 1000);
+// }
 
 
 //unfinished
