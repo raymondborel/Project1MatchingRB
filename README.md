@@ -8,5 +8,5 @@ The layout of the game goes as follows
 top of the screen will have game name and a Match counter which will increase for each match that is made 
 Body of screen will have all the cards
 Left column will have a new game and quit button. 
-I wa
+
 
