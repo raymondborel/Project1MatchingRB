@@ -39,19 +39,29 @@ h1 {
   text-align: center;
 }
 
+.buttonContainer {
+  margin-top: 10vh;
+  justify-content: center;
+  display: flex;
+  height: 50vh;
+
+
+}
 .newGame {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  display: flex;
+  /* display: flex; */
   background-color: bisque;
-  width: 20vw;
+  width: 19vw;
   height: 10vh;
   color: black;
+  text-align: center;
 }
 .quitGame {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  display: flex;
+  /* display: flex; */
+  text-align: center;
   background-color: bisque;
-  width: 20vw;
+  width: 19vw;
   height: 10vh;
   color: black;
 }
