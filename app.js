@@ -20,6 +20,10 @@ let square5 = squares[4];
 let square6 = squares[5];
 let square7 = squares[6];
 let square8 = squares[7];
+let square9 = squares[8];
+let square10 = squares[9];
+let square11 = squares[10];
+let square12 = squares[11];
 let cardNums;
 
 startGameButton.addEventListener('click', newGame);
