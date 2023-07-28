@@ -49,7 +49,6 @@ h1 {
 }
 .newGame {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  /* display: flex; */
   background-color: bisque;
   width: 19vw;
   height: 10vh;
@@ -58,7 +57,6 @@ h1 {
 }
 .quitGame {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  /* display: flex; */
   text-align: center;
   background-color: bisque;
   width: 19vw;

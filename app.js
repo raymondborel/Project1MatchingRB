@@ -6,7 +6,6 @@ let isFirstCardSelected = false;
 let isSecondCardSelected = false;
 let firstPickedCard;
 let firstPickedCardValue = [];
-let myTimer;
 let numArray = [];
 let copyNumArray = [];
 let matches = 0;
