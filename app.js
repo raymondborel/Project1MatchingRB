@@ -24,19 +24,21 @@ let square10 = squares[9];
 let square11 = squares[10];
 let square12 = squares[11];
 let cardNums;
+let numOfCards = 12
 
 startGameButton.addEventListener('click', newGame);
 function newGame () {
-    for (let i = 0; i<4; i++){
+    for (let i = 0; i<numOfCards/2; i++){
         while (numArray.includes(num)) {
-            num = Math.floor(Math.random() * 4);
+            num = Math.floor(Math.random() * numOfCards/2);
         }
         numArray.push(num);
     }
-    num = Math.floor(Math.random() * 4)
+    
+    num = Math.floor(Math.random() * numOfCards/2)
     for (let i = 0; i<4; i++){
         while (copyNumArray.includes(num)) {
-            num = Math.floor(Math.random() * 4);
+            num = Math.floor(Math.random() * numOfCards/2);
         }
         copyNumArray.push(num);
     }
