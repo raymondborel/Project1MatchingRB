@@ -10,7 +10,7 @@ let numArray = [];
 let copyNumArray = [];
 let matches = 0;
 let numOfMatches = document.getElementById('correctMatches');
-let num = Math.floor(Math.random() * 4)
+let num = Math.floor(Math.random() * 5)
 let square1 = squares[0];
 let square2 = squares[1];
 let square3 = squares[2];
@@ -28,6 +28,7 @@ let numOfCards = 12
 
 startGameButton.addEventListener('click', newGame);
 function newGame () {
+    console.log(numOfCards)
     for (let i = 0; i<numOfCards/2; i++){
         while (numArray.includes(num)) {
             num = Math.floor(Math.random() * numOfCards/2);
@@ -36,7 +37,7 @@ function newGame () {
     }
     
     num = Math.floor(Math.random() * numOfCards/2)
-    for (let i = 0; i<4; i++){
+    for (let i = 0; i<numOfCards/2; i++){
         while (copyNumArray.includes(num)) {
             num = Math.floor(Math.random() * numOfCards/2);
         }
@@ -54,8 +55,6 @@ function newGame () {
 
         })
     }
-    
-
 }
 function showFirstCard (square, squareValue) {
     if ( isFirstCardSelected == false){
